@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
+Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
+Route::post('/items', 'ItemController@store'); // menyimpan data
+Route::get('/items', 'ItemController@index'); // menampilkan semua
+Route::get('/items/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
+Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
+Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
+Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
 Route::get('/proyek', 'ProjectsController@index'); //menampilkan tabel berisi data proyek-proyek
 Route::get('/proyek/create', 'ItemController@create'); // menampilkan form untuk membuat data proyek baru, di dalam form tersebut terdapat input pengisian data-data proyek dan penunjukkan manager
 Route::post('/proyek', 'ItemController@store'); // menyimpan proyek baru
